@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Tuba Slim Graphic Design</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>TUBA SLIM GRAPHIC DESIGN</h1>
+      <p>Portfolio, Freelance Graphics, and Shop.</p>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>My Portfolio</h2>
+      <p>desc</p>
+    </section>
+
+    <section class="portfolio-filters">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="graphics">Graphic Design</button>
+      <button class="filter-btn" data-filter="illustration">Illustration</button>
+      <button class="filter-btn" data-filter="painting">Painting</button>
+    </section>
+
+    <section class="portfolio-grid">
+      <div class="portfolio-item" data-category="graphics">
+        <div class="portfolio-image">
+          <img src="https://via.placeholder.com/400x300/4f46e5/ffffff?text=Brand+Identity" alt="Project 1" />
+        </div>
+        <div class="portfolio-content">
+          <h3>proj 1</h3>
+          <p>desc</p>
+          <span class="category-tag">Graphic Designs</span>
+        </div>
+    </div>
+
+      <div class="portfolio-item project-2" data-category="illustration">
+        <div class="portfolio-image">
+          <img src=".vscode/uploads/IMG_20260418_174907413.jpg" alt="Project 2" />
+        </div>
+        <div class="portfolio-content">
+          <h3>proj 2</h3>
+          <p>desc</p>
+          <span class="category-tag">Illustration</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="graphics">
+        <div class="portfolio-image">
+          <img src="tung tung tung sahur" alt="Project 3" />
+        </div>
+        <div class="portfolio-content">
+          <h3>proj 3</h3>
+          <p>desc</p>
+          <span class="category-tag">Graphic Designs</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="painting">
+        <div class="portfolio-image">
+          <img src="https://via.placeholder.com/400x300/0891b2/ffffff?text=UI+Design" alt="Project 4" />
+        </div>
+        <div class="portfolio-content">
+          <h3>proj 4</h3>
+          <p>desc</p>
+          <span class="category-tag">Painting</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Tuba Slim Graphic Design</p>
+  </footer>
+
+  <!-- Modal for enlarged image -->
+  <div id="image-modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-image">
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          // Add active class to clicked button
+          this.classList.add('active');
+
+          const filterValue = this.getAttribute('data-filter');
+
+          portfolioItems.forEach(item => {
+            if (filterValue === 'all') {
+              item.style.display = 'block';
+            } else {
+              const itemCategory = item.getAttribute('data-category');
+              if (itemCategory === filterValue) {
+                item.style.display = 'block';
+              } else {
+                item.style.display = 'none';
+              }
+            }
+          });
+        });
+      });
+
+      // Modal functionality for project 2 image
+      const project2Image = document.querySelector('.project-2 .portfolio-image img');
+      const modal = document.getElementById('image-modal');
+      const modalImg = document.getElementById('modal-image');
+      const closeBtn = document.querySelector('.close');
+
+      if (project2Image) {
+        project2Image.addEventListener('click', function() {
+          modal.style.display = 'flex';
+          modalImg.src = this.src;
+        });
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          modal.style.display = 'none';
+        });
+      }
+
+      // Close modal when clicking outside the image
+      modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
