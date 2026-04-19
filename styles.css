@@ -47,7 +47,7 @@ body {
 }
 .intro,
 .contact-card {
-  background: #574098;
+  background: #111827;
   border: 1px solid rgba(148, 163, 184, 0.12);
   border-radius: 1rem;
   padding: 2rem;
@@ -79,17 +79,17 @@ body {
   transform: translateY(-4px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
-.features article:nth-child(1) {
-  background: #392268;
-  color: #FFD205
-}
-.features article:nth-child(2) {
+.features article.article--portfolio {
   background: #00ABBD;
   color: #392268;
 }
-.features article:nth-child(3) {
+.features article.article--shop {
   background: #FFD205;
   color: #00ABBD;
+}
+.features article.article--commission {
+  background: #6d28d9;
+  color: #FFD205;
 }
 .features h3 {
   margin-top: 0;
@@ -99,13 +99,13 @@ body {
   margin-top: 1rem;
   padding: 0.95rem 1.5rem;
   border-radius: 999px;
-  background: #00ABBD;
-  color: #392268;
+  background: #22c55e;
+  color: #0f172a;
   text-decoration: none;
   font-weight: 700;
 }
 .button:hover {
-  background: #ffffff;
+  background: #16a34a;
 }
 .back-link {
   display: inline-block;
@@ -203,9 +203,6 @@ body {
   height: 200px;
   overflow: hidden;
 }
-.project-2 .portfolio-image {
-  height: 400px;
-}
 .portfolio-image img {
   width: 100%;
   height: 100%;
@@ -236,41 +233,4 @@ body {
   border-radius: 1rem;
   font-size: 0.8rem;
   font-weight: 600;
-}
-
-/* Modal styles */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-content {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-}
-
-.close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
 }
